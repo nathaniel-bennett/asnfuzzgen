@@ -1,0 +1,21 @@
+[package]
+name = "asnfuzzgen-codecs"
+version = "0.1.0"
+authors = ["Nathaniel Bennett <me[at]nathanielbennett[dotcom]>"]
+categories = ["development-tools::testing"]
+description = "ASN.1 Codecs for Rust Types representing ASN.1 Types."
+keywords = ["asn1", "per", "decoder", "encoder", "fuzzing"]
+edition = "2018"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/nathaniel-bennett/asnfuzzgen"
+include = ["src/**/*.rs", "Cargo.toml", "LICENSE", "LICENSE-MIT", "LICENSE-Apache2", "README.md"]
+
+[badges]
+maintenance = { status = "actively-developed" }
+
+[dependencies]
+bitvec = { version = "1.0" }
+syn = { version = "1.0" }
+proc-macro2 = { version = "1.0" }
+log = { version = "0.4", features = ["release_max_level_info"] }
