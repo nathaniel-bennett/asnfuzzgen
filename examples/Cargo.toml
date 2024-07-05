@@ -1,17 +1,17 @@
 [package]
 name = "asnfuzzgen-examples"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2021"
 description = "Examples for usage of ASN.1 Compiler and Codecs."
 license = "Apache-2.0 OR MIT"
 publish = false
 
 [build-dependencies]
-asnfuzzgen = { path = "../asnfuzzgen", version = "=0.1.2" }
+asnfuzzgen = { path = "../asnfuzzgen", version = "=0.1.3" }
 
 [dev-dependencies]
-asnfuzzgen-codecs = { path = "../codecs", version = "=0.1.2" }
-asnfuzzgen_codecs_derive = { path = "../codecs_derive", version = "=0.1.2" }
+asnfuzzgen-codecs = { path = "../codecs", version = "=0.1.3" }
+asnfuzzgen_codecs_derive = { path = "../codecs_derive", version = "=0.1.3" }
 trybuild = { version = "1.0" }
 hex = { version = "0.4" }
 bitvec = { version = "1.0" , features = ["serde"]}

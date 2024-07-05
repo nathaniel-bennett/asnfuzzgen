@@ -84,7 +84,7 @@ pub(super) fn generate_aper_codec_for_asn_open_type(
             }
 
             fn #codec_encode_fn(&self, data: &mut asnfuzzgen_codecs::PerCodecData) -> Result<(), asnfuzzgen_codecs::PerCodecError> {
-                encode_tokens
+                #encode_tokens
             }
         }
     };
