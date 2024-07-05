@@ -1,6 +1,6 @@
 [package]
 name = "asnfuzzgen"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Nathaniel Bennett <me[at]nathanielbennett[dotcom]>"]
 edition = "2018"
 categories = ["development-tools::testing"]
