@@ -1,6 +1,6 @@
 [package]
 name = "asnfuzzgen-codecs-derive"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Nathaniel Bennett <me[at]nathanielbennett[dotcom]>"]
 description = "ASN.1 Codecs derive macros"
 categories = ["development-tools::testing"]

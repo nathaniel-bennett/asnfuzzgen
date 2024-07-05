@@ -24,11 +24,6 @@ impl Asn1ResolvedCharacterString {
                 if constraint.is_size_constraint() {
                     let value_set = constraint.get_size_valueset(resolver)?;
                     let _ = base.size.replace(value_set);
-                } else {
-                    log::warn!(
-                        "Found Constraint '{:#?}'. Only supported constraint on CharacterString Type is Size Constraint.",
-                        constraint
-                    );
                 }
             }
         }

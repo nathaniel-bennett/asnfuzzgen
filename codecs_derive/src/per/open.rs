@@ -69,11 +69,7 @@ pub(super) fn generate_aper_codec_for_asn_open_type(
             type Output = Self;
 
             fn #codec_decode_fn(data: &mut asnfuzzgen_codecs::PerCodecData) -> Result<Self::Output, asnfuzzgen_codecs::PerCodecError> {
-                log::trace!(concat!("decode: ", stringify!(#name)));
-
                 let length = #ty_decode_path(data, None, None, false)?;
-
-                log::trace!("open type: decoded length: {}", length);
 
                 if data.get_key().is_none() {
                     return Err(asnfuzzgen_codecs::PerCodecError::new("Decoding OPEN Type, but `key` is not determined!"));
@@ -88,9 +84,7 @@ pub(super) fn generate_aper_codec_for_asn_open_type(
             }
 
             fn #codec_encode_fn(&self, data: &mut asnfuzzgen_codecs::PerCodecData) -> Result<(), asnfuzzgen_codecs::PerCodecError> {
-                log::trace!(concat!("encode: ", stringify!(#name)));
-
-                #encode_tokens
+                encode_tokens
             }
         }
     };

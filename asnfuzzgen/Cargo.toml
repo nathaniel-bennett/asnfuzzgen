@@ -1,6 +1,6 @@
 [package]
 name = "asnfuzzgen"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Nathaniel Bennett <me[at]nathanielbennett[dotcom]>"]
 edition = "2018"
 categories = ["development-tools::testing"]
@@ -21,8 +21,6 @@ bitvec = { version = "1.0" }
 clap = { version = "4.0.10", features = ["derive"] }
 docx-rs = { version = "0.4.5" , optional = true }
 regex = { version = "1.6.0" }
-log = { version = "0.4" }
-env_logger = { version = "0.10" }
 
 [[bin]]
 name = "asnfuzzgen"

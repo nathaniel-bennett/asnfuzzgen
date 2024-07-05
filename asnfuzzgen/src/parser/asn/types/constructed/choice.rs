@@ -88,11 +88,6 @@ pub(crate) fn parse_choice_type(tokens: &[Token]) -> Result<(Asn1TypeChoice, usi
         }
 
         if loop_consumed == consumed {
-            log::warn!(
-                "No tokens consumed in {} iterations of the loop",
-                loop_count
-            );
-
             loop_count += 1;
             if loop_count == 3 {
                 return Err(parse_error!("Parser stuck at Token {:?}", tokens[consumed]));
@@ -166,11 +161,6 @@ fn parse_choice_addition_group(tokens: &[Token]) -> Result<(ChoiceAdditionGroup,
         }
 
         if loop_consumed == consumed {
-            log::warn!(
-                "No tokens consumed in {} iterations of the loop",
-                loop_count
-            );
-
             loop_count += 1;
             if loop_count == 3 {
                 return Err(parse_error!("Parser stuck at Token {:?}", tokens[consumed]));

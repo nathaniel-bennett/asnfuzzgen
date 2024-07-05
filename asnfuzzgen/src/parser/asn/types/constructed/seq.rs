@@ -89,11 +89,6 @@ fn parse_sequence_type(tokens: &[Token]) -> Result<(Asn1TypeKind, usize), Error>
         }
 
         if loop_consumed == consumed {
-            log::warn!(
-                "No tokens consumed in {} iterations of the loop",
-                loop_count
-            );
-
             loop_count += 1;
             if loop_count == 3 {
                 return Err(parse_error!(

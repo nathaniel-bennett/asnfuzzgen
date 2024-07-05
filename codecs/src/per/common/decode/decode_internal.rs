@@ -83,18 +83,12 @@ fn decode_constrained_length_determinent_common(
     ub: usize,
     aligned: bool,
 ) -> Result<usize, PerCodecError> {
-    log::trace!(
-        "decode_constrained_length_determinent, lb: {}, ub: {}",
-        lb,
-        ub
-    );
 
     let range = ub - lb + 1;
 
     if range <= 65536 {
         // Almost always for our use cases, so let's just use it.
         let length = decode_constrained_whole_number_common(data, lb as i128, ub as i128, aligned)?;
-        log::trace!("decoded length : {}", length);
 
         data.dump();
 
@@ -140,7 +134,6 @@ pub(super) fn decode_unconstrained_whole_number_common(
     data: &mut PerCodecData,
     aligned: bool,
 ) -> Result<i128, PerCodecError> {
-    log::trace!("decode_unconstrained_length:");
 
     let length = decode_length_determinent_common(data, None, None, false, aligned)?;
     let bits = length * 8;
@@ -153,7 +146,6 @@ pub(super) fn decode_semi_constrained_whole_number_common(
     lb: i128,
     aligned: bool,
 ) -> Result<i128, PerCodecError> {
-    log::trace!("decode_semi_constrained_whole_number:");
 
     let length = decode_length_determinent_common(data, None, None, false, aligned)?;
 
@@ -172,7 +164,6 @@ pub(super) fn decode_constrained_whole_number_common(
     ub: i128,
     aligned: bool,
 ) -> Result<i128, PerCodecError> {
-    log::trace!("decode_constrained_whole_number: lb: {}, ub: {}", lb, ub,);
 
     let range = ub - lb + 1;
     if range <= 0 {
@@ -201,7 +192,6 @@ pub(super) fn decode_constrained_whole_number_common(
             data.decode_bits_as_integer(16, false)?
         } else {
             let bytes_needed = crate::per::common::bytes_needed_for_range(range);
-            log::trace!("bytes_needed : {}", bytes_needed);
             let length = decode_constrained_length_determinent_common(
                 data,
                 1,

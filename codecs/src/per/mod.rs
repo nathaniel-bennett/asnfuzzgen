@@ -71,7 +71,6 @@ impl PerCodecData {
         }
 
         let remaining = 8 - (self.decode_offset & 0x7_usize);
-        log::trace!("Aligning Codec Buffer with {} bits", remaining);
 
         if !self.bits[self.decode_offset..self.decode_offset + remaining]
             .iter()
@@ -114,11 +113,6 @@ impl PerCodecData {
                 .as_str(),
             ))
         } else {
-            log::trace!(
-                "Decoding Bits as Integer. offset: {}, bits: {}",
-                self.decode_offset,
-                bits
-            );
             let value = if !signed {
                 if bits == 0 {
                     0_i128
@@ -224,7 +218,6 @@ impl PerCodecData {
                     }
                 }
             };
-            log::trace!("Decoded Value: {:?}", value);
             self.advance_maybe_err(bits, false)?;
             Ok(value)
         }
@@ -331,12 +324,10 @@ impl PerCodecData {
     /// Dump current 'offset'.
     #[inline]
     pub fn dump(&self) {
-        log::trace!("PerCodecData: offset: {}", self.decode_offset);
     }
 
     #[inline]
     pub fn dump_encode(&self) {
-        log::trace!("PerCodecData: current_len : {}", self.bits.len());
     }
 
     /// Reserve certain bits at the current `offset`.

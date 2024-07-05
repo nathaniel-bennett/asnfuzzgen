@@ -1,11 +1,6 @@
 #![cfg(test)]
 
-fn init() {
-    let _ = env_logger::builder()
-        .filter_level(log::LevelFilter::max())
-        .is_test(true)
-        .try_init();
-}
+fn init() {}
 
 fn get_module_header(module_name: &str, test_no: u16) -> String {
     init();

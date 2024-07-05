@@ -31,13 +31,9 @@ pub(super) fn generate_aper_codec_for_asn_object_identifier(
             type Output = Self;
 
             fn #codec_decode_fn(_data: &mut asnfuzzgen_codecs::PerCodecData) -> Result<Self::Output, asnfuzzgen_codecs::PerCodecError> {
-                log::trace!(concat!("decode: ", stringify!(#name)));
-
                 Err(asnfuzzgen_codecs::PerCodecError::new("Object Identifier Decode Not Supported!"))
             }
             fn #codec_encode_fn(&self, _data: &mut asnfuzzgen_codecs::PerCodecData) -> Result<(), asnfuzzgen_codecs::PerCodecError> {
-                log::trace!(concat!("encode: ", stringify!(#name)));
-
                 Err(asnfuzzgen_codecs::PerCodecError::new("Object Identifier Encode Not Supported!"))
             }
         }

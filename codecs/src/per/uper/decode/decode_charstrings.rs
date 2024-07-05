@@ -11,12 +11,6 @@ pub fn decode_visible_string(
     ub: Option<i128>,
     is_extensible: bool,
 ) -> Result<String, PerCodecError> {
-    log::trace!(
-        "decode_visible_string: lb: {:?}, ub: {:?}, is_extensible: {}",
-        lb,
-        ub,
-        is_extensible
-    );
     decode_string_common(data, lb, ub, is_extensible, 7, false)
 }
 
@@ -27,12 +21,6 @@ pub fn decode_printable_string(
     ub: Option<i128>,
     is_extensible: bool,
 ) -> Result<String, PerCodecError> {
-    log::trace!(
-        "decode_printable_string: lb: {:?}, ub: {:?}, is_extensible: {}",
-        lb,
-        ub,
-        is_extensible
-    );
     decode_string_common(data, lb, ub, is_extensible, 7, false)
 }
 
@@ -46,11 +34,5 @@ pub fn decode_utf8_string(
     ub: Option<i128>,
     is_extensible: bool,
 ) -> Result<String, PerCodecError> {
-    log::trace!(
-        "decode_utf8_string: lb: {:?}, ub: {:?}, is_extensible: {}",
-        lb,
-        ub,
-        is_extensible
-    );
     decode_string_common(data, lb, ub, is_extensible, 8, false)
 }

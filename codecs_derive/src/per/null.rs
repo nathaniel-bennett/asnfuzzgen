@@ -31,14 +31,10 @@ pub(super) fn generate_aper_codec_for_asn_null(
             type Output = Self;
 
             fn #codec_decode_fn(_data: &mut asnfuzzgen_codecs::PerCodecData) -> Result<Self::Output, asnfuzzgen_codecs::PerCodecError> {
-                log::trace!(concat!("decode null type: ", stringify!(#name)));
-
                 Ok(Self{})
             }
 
             fn #codec_encode_fn(&self, _data: &mut asnfuzzgen_codecs::PerCodecData) -> Result<(), asnfuzzgen_codecs::PerCodecError> {
-                log::trace!(concat!("encode null type: ", stringify!(#name)));
-
                 Ok(())
             }
         }

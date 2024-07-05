@@ -127,12 +127,6 @@ pub fn decode_enumerated_common(
     is_extensible: bool,
     aligned: bool,
 ) -> Result<(i128, bool), PerCodecError> {
-    log::trace!(
-        "decode_enumerated: lb: {:?}, ub: {:?}, is_extensible: {}",
-        lb,
-        ub,
-        is_extensible
-    );
 
     let is_extended = if is_extensible {
         data.decode_bool()?
@@ -202,12 +196,6 @@ pub fn decode_octetstring_common(
     is_extensible: bool,
     aligned: bool,
 ) -> Result<Vec<u8>, PerCodecError> {
-    log::trace!(
-        "decode_octetstring: lb: {:?}, ub: {:?}, is_extensible: {}",
-        lb,
-        ub,
-        is_extensible
-    );
 
     let is_extended = if is_extensible {
         data.decode_bool()?

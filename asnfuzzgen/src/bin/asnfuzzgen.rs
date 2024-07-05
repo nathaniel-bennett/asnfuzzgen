@@ -73,8 +73,6 @@ fn main() -> io::Result<()> {
         "info"
     };
 
-    let env = env_logger::Env::default().filter_or("MY_LOG_LEVEL", level);
-    env_logger::init_from_env(env);
 
     let mut compiler = Asn1Compiler::new(&cli.module, &cli.visibility, cli.codec, derives.clone());
     compiler.compile_files(&cli.files)?;

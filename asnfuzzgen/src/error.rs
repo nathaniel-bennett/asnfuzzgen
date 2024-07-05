@@ -114,7 +114,6 @@ macro_rules! unexpected_token {
 macro_rules! parse_error_log {
     ($($arg: tt)*) => {
         {
-            log::error!("{}", format!($($arg)*));
             crate::error::Error::ParseError(format!($($arg)*))
         }
     };

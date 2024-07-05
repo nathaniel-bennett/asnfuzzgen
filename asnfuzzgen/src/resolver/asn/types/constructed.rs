@@ -255,7 +255,7 @@ fn resolve_seq_components_for_objects(
                     result.push(seq_component);
                 }
             } else {
-                log::warn!("WARN!");
+                ()
             }
         } else {
             // It is possible that there are types in an Object Set that are not Class Reference,

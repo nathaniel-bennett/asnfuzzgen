@@ -103,16 +103,8 @@ pub(super) fn parse_definition(tokens: &[Token]) -> Result<(Asn1Definition, usiz
     )? {
         let next = &tokens[consumed];
         if next.is_value_reference() {
-            log::trace!(
-                "Parsing a Value like definition. Current Token {:#?}",
-                tokens[consumed]
-            );
             parse_valueish_definition(&tokens[consumed..])
         } else {
-            log::trace!(
-                "Parsing a Type like definition. Current Token {:#?}",
-                tokens[consumed]
-            );
             parse_typeish_definition(&tokens[consumed..])
         }
     } else {
@@ -232,17 +224,14 @@ fn parse_value_assignment(tokens: &[Token]) -> Result<(Asn1Definition, usize), E
 fn parse_typeish_definition(tokens: &[Token]) -> Result<(Asn1Definition, usize), Error> {
     // Try to parse a type_definition
     if let Ok(x) = parse_type_assignment(tokens) {
-        log::trace!("Parsed Type Assignment.");
         return Ok(x);
     }
 
     if let Ok(x) = parse_class_assignment(tokens) {
-        log::trace!("Parsed class Assignment.");
         return Ok(x);
     }
 
     if let Ok(x) = parse_object_set_assignment(tokens) {
-        log::trace!("Parsed Object Set Assignment.");
         return Ok(x);
     }
 
